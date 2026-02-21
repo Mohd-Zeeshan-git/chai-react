@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import Card from './Components/Card';
 
 function App() {
   const username = "zee";
@@ -7,6 +8,10 @@ function App() {
   const addValue = () => {
     if (Counter < 20) {
       setCounter(Counter + 1);
+      setCounter((prevCounter) => {
+        return prevCounter + 1;
+      })
+      setCounter(counter => counter + 1);
     }
   }
   const removeValue = () => {
@@ -14,6 +19,13 @@ function App() {
       setCounter(Counter - 1)
     }
 }
+
+
+  const defObject = {
+    title: "superman",
+    discription:"superhero"
+  }
+  const newArray = [1, 2, 3];
   return (
     <>
       <h2>hello {username}
@@ -24,6 +36,11 @@ function App() {
       >add value</button>
       <button onClick={removeValue}
       >remove value</button>
+
+
+      <Card title="superman" />
+      <Card />
+      <Card myArray={newArray} myObject={defObject} />
     </>
   )
 }
